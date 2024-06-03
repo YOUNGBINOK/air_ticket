@@ -1,0 +1,223 @@
+/* content_title */
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Hahmlet:wght@100..900&display=swap");
+
+/* 항공사 이름 / 출발공항/목적공항 폰트*/
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gugi&family=Hahmlet:wght@100..900&display=swap");
+
+:root {
+  --ticket-background-color: #ff0083;
+  --ticket-font-color: #fff;
+  --base-padding: 10px;
+  --base-content-font-color: #6b6b6b;
+  --base-font-color: #000;
+  --ticket-border-radius: 15px;
+}
+
+.ticket_title {
+  font-size: 2rem;
+}
+
+.content_title {
+  font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+  color: var(--base-content-font-color);
+  padding: var(--base-padding) 0;
+}
+
+.content_text {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+#wrap {
+}
+
+#header {
+}
+
+#input_flightId {
+  text-transform: uppercase;
+}
+
+.week_schedule {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.week_schedule li {
+  padding: 30px;
+}
+
+/* main 시작 */
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket {
+  display: flex;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.ticket_top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--base-padding);
+  background-color: var(--ticket-background-color);
+  color: var(--ticket-font-color);
+  text-align: center;
+  align-items: center;
+  border-radius: var(--ticket-border-radius) var(--ticket-border-radius) 0 0;
+}
+
+.ticket_title {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
+.logo {
+}
+
+.boarding_pass {
+  text-transform: uppercase;
+}
+
+.content {
+  padding: var(--base-padding);
+  height: 100%;
+}
+
+.ticket_left,
+.ticket_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.ticket_left {
+  position: relative;
+  /* width: 70%; */
+  border-right: 3px dashed #9e9e9e;
+}
+
+.ticket_right {
+  width: 30%;
+}
+
+.ticket_right .ticket_top .ticket_title {
+  margin: 0 auto;
+}
+
+.about_time {
+}
+
+.city {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--base-padding) 0;
+}
+
+.city .item1 {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.city .item2 {
+  flex: 1 1 40%;
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.aiport_status {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--base-padding) 0;
+}
+
+.aiport_status .item1 {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.aiport_status .item2 {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.aiport_status .item3 {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.aiport_status .item4 {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.ticket_bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--base-padding);
+  background-color: var(--ticket-background-color);
+  color: var(--ticket-font-color);
+  border-radius: 0 0 var(--ticket-border-radius) var(--ticket-border-radius);
+}
+
+.boarding_pass {
+}
+
+.hide_text {
+  display: inline-block;
+  overflow: hidden;
+  border: 0;
+  width: 0px;
+  height: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  /* 추가 */
+  clip-path: inset(50%);
+  display: inline-block;
+}
+
+.airplane_container {
+  position: relative;
+}
+
+.airplane {
+  position: absolute;
+  left: -50px;
+  font-size: 3rem;
+  animation: fly 2.5s linear infinite;
+  transform: rotate(45deg);
+}
+
+@keyframes fly {
+  0% {
+    left: -50px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 20px);
+    opacity: 0;
+  }
+}

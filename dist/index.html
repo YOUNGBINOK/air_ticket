@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인천국제공항</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <!-- <h1 class="hide_text">헤더</h1> -->
+        <input type="text" id="input_flightId" />
+        <input type="date" id="select_date" />
+      </header>
+      <main id="main">
+        <section class="ticket">
+          <div class="ticket_top">
+            <h1 class="logo">로고</h1>
+            <p id="airline_name">항공사이름_내용</p>
+            <p class="boarding_pass">boarding pass</p>
+          </div>
+          <div class="content">
+            <p class="start_airport">출발공항</p>
+            <span id="start_airport">출발공항코드</span>
+            <span class="icon"><img class="plane" /></span>
+            <span id="airport_code">도착공항코드</span>
+            <p id="final_airport">목적공항</p>
+            <span id="flight_id">항공기편명</span>
+            <span id="gate_number">출발게이트</span>
+            <!-- <span id="carousel">수하물수취대</span> -->
+            <span id="city_code">도시코드</span>
+            <span id="remark">운항상태</span>
+            <span id="terminalId">터미널</span>
+            <span id="elapsetime">소요시간</span>
+            <section></section>
+          </div>
+          <div class="ticket_bottom">
+            <p>하단</p>
+          </div>
+        </section>
+      </main>
+      <footer id="footer"></footer>
+    </div>
+  </body>
+</html>
