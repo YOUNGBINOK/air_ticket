@@ -4,8 +4,14 @@
 /* 항공사 이름 / 출발공항/목적공항 폰트*/
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gugi&family=Hahmlet:wght@100..900&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Moirai+One&family=Nanum+Brush+Script&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Moirai+One&family=Nanum+Brush+Script&family=Song+Myung&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Dongle&family=Moirai+One&family=Nanum+Brush+Script&family=Song+Myung&display=swap");
+
 :root {
-  --ticket-background-color: #ff0083;
+  --ticket-background-color: #1db874;
   --ticket-font-color: #fff;
   --base-padding: 10px;
   --base-content-font-color: #6b6b6b;
@@ -15,6 +21,29 @@
 
 .ticket_title {
   font-size: 2rem;
+}
+
+.content {
+  position: relative;
+  background-color: #f4f3e8;
+  height: 100%;
+}
+
+.content_background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg); /* Combine translate and rotate in one transform */
+  color: #acacac4d;
+  font-size: 5rem;
+  transform-origin: center; /* Ensure the rotation is around the center */
+  /* font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal; */
+
+  font-family: "Song Myung", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .content_title {
@@ -31,7 +60,7 @@
   font-family: "Nanum Gothic", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
 }
 
 #wrap {
@@ -64,6 +93,7 @@
   display: flex;
   box-sizing: border-box;
   background-color: transparent;
+  width: 100%;
 }
 
 .ticket_top {
@@ -93,7 +123,7 @@
 
 .content {
   padding: var(--base-padding);
-  height: 100%;
+  /* height: 100%; */
 }
 
 .ticket_left,
@@ -108,7 +138,7 @@
 
 .ticket_left {
   position: relative;
-  /* width: 70%; */
+  width: 70%;
   border-right: 3px dashed #9e9e9e;
 }
 
@@ -127,6 +157,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: var(--base-padding) 0;
+  z-index: 10;
 }
 
 .city .item1 {
@@ -147,6 +178,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: var(--base-padding) 0;
+  z-index: 10;
 }
 
 .aiport_status .item1 {

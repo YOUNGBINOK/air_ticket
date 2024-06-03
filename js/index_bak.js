@@ -22,17 +22,17 @@ async function getData() {
   const responses = await Promise.all([
     fetch(departuresApiUrl),
     //fetch(arrivalApiUrl),
-    fetch(regularFlights),
+    //fetch(regularFlights),
     //fetch(flightsSchedule),
   ]);
 
   departureInfo = await responses[0].json();
   //arrivalInfo = await responses[1].json();
-  regularFlightsInfo = await responses[1].json();
+  //regularFlightsInfo = await responses[1].json();
   //flightsScheduleInfo = await responses[2].json();
 
   console.log("인천출발", departureInfo.response.body.items);
-  console.log("인천정기", regularFlightsInfo.response.body.items);
+  //console.log("인천정기", regularFlightsInfo.response.body.items);
   //console.log("인천스케쥴", flightsScheduleInfo.response.body.items);
 
   //console.log("인천도착", arrivalInfo.response.body.items);
@@ -47,6 +47,7 @@ try {
 let ticket = document.getElementById("ticket");
 let flightIdInput = document.getElementById("input_flightId");
 let airlineName = document.getElementsByClassName("ticket_title");
+let textBackground = document.querySelectorAll(".content_background");
 let departureAirport = document.getElementById("departure_airport_code");
 let arrivalAirport = document.getElementById("arrival_airport_code");
 let finalAirport = document.getElementById("final_airport");
@@ -60,24 +61,23 @@ let checkinCounter = document.getElementById("checkin_counter");
 let elapseTime = document.getElementById("elapse_time");
 let estimatedArrivalTime = document.getElementById("estimated_arrival_time");
 // let rotateBtn = document.getElementById("rotate_button");
+
 // 추가 문자열
 let insertString = ":";
 
 flightIdInput.addEventListener("change", function (e) {
   try {
     let departureData = departureInfo.response.body.items;
-    let regularDepartureFlightsData = regularFlightsInfo.response.body.items;
-    for (let j = 0; j < regularDepartureFlightsData.length; j++) {
-      if (e.target.value === regularDepartureFlightsData[j].flightid) {
-        console.log(regularDepartureFlightsData[j]);
-      }
-    }
 
     for (let i = 0; i < departureData.length; i++) {
       if (e.target.value === departureData[i].flightId) {
         // 항공사
         airlineName[0].textContent = departureData[i].airline;
         airlineName[1].textContent = departureData[i].airline;
+
+        textBackground[0].textContent = departureData[i].airline;
+        textBackground[1].textContent = departureData[i].airline;
+
         // 최종 목적지 공항명(한글)
         finalAirport.textContent = departureData[i].airport;
         // 출발 공항 코드 : 인천
@@ -107,6 +107,7 @@ flightIdInput.addEventListener("change", function (e) {
         } else if (departureData[i].terminalId === "P03") {
           terminalId.textContent = "제2 터미널";
         }
+
         // 변경 출발 시간
         let newEstimatedDateTime =
           departureData[i].estimatedDateTime.slice(0, 2) +
