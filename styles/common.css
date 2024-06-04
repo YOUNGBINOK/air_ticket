@@ -14,6 +14,7 @@ body {
   /* 추가해야 글 간격 맞음 */
   letter-spacing: -0.01rem;
   word-break: keep-all;
+  overflow-x: hidden;
 }
 
 h1,

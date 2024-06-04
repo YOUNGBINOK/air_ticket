@@ -11,12 +11,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Dongle&family=Moirai+One&family=Nanum+Brush+Script&family=Song+Myung&display=swap");
 
 :root {
-  --ticket-background-color: #1db874;
+  /* --ticket-background-color: #ffa500; */
+  --ticket-background-color: #add8e6;
   --ticket-font-color: #fff;
   --base-padding: 10px;
   --base-content-font-color: #6b6b6b;
   --base-font-color: #000;
   --ticket-border-radius: 15px;
+}
+
+.wrap {
+  overflow-x: hidden;
 }
 
 .ticket_title {
@@ -35,8 +40,8 @@
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg); /* Combine translate and rotate in one transform */
   color: #acacac4d;
-  font-size: 5rem;
-  transform-origin: center; /* Ensure the rotation is around the center */
+  font-size: 3rem;
+  transform-origin: center;
   /* font-family: "Bagel Fat One", system-ui;
   font-weight: 400;
   font-style: normal; */
@@ -46,6 +51,27 @@
   font-style: normal;
 }
 
+#terminal_id,
+#gate_number {
+  position: relative;
+}
+#terminal_id p,
+#gate_number p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 1.6rem;
+}
+.aiport_status svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  opacity: 0.5;
+}
 .content_title {
   font-family: "Hahmlet", serif;
   font-optical-sizing: auto;
@@ -93,7 +119,7 @@
   display: flex;
   box-sizing: border-box;
   background-color: transparent;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .ticket_top {
@@ -137,7 +163,6 @@
 }
 
 .ticket_left {
-  position: relative;
   width: 70%;
   border-right: 3px dashed #9e9e9e;
 }

@@ -1,5 +1,8 @@
 import "../styles/common.css";
 import "../styles/index.css";
+import "../styles/clock.css";
+import "external-svg-loader";
+import "../images/blue_sky.jpg";
 
 let departureInfo;
 let arrivalInfo;
@@ -7,6 +10,21 @@ let regularFlightsInfo;
 let flightsScheduleInfo;
 
 const API_KEY = process.env.API_KEY;
+
+let myTicketList = [];
+
+setInterval(() => {
+  let today = new Date();
+  let hour = today.getHours(); // 시
+  let min = today.getMinutes(); //분
+  let sec = today.getSeconds(); //초
+
+  let timeBoard = document.querySelectorAll(".timenow"); // 값이 입력될 공간
+  timeBoard.forEach((item) => {
+    let time = hour + "시 " + min + "분 " + sec + "초"; // 형식 지정
+    item.textContent = time; // 출력
+  });
+}, 1000);
 
 async function getData() {
   // 출발정보
@@ -52,10 +70,10 @@ let departureAirport = document.getElementById("departure_airport_code");
 let arrivalAirport = document.getElementById("arrival_airport_code");
 let finalAirport = document.getElementById("final_airport");
 let flightId = document.getElementById("flight_id");
-let gateNumber = document.getElementById("gate_number");
+let gateNumber = document.querySelector("#gate_number p");
 // let cityCode = document.getElementById("city_code");
 let remark = document.getElementById("remark");
-let terminalId = document.getElementById("terminal_id");
+let terminalId = document.querySelector("#terminal_id p");
 let estimatedDateTime = document.getElementById("estimated_datetime");
 let checkinCounter = document.getElementById("checkin_counter");
 let elapseTime = document.getElementById("elapse_time");
@@ -141,8 +159,8 @@ flightIdInput.addEventListener("change", function (e) {
       }
     }
   } catch (error) {
-    console.log(error);
-    //console.log("해당 편명은 없습니다");
+    //console.log(error);
+    console.log("해당 편명은 없습니다");
   }
 });
 
@@ -158,3 +176,118 @@ flightIdInput.addEventListener("change", function (e) {
 //     ticket.style.transform = "rotateY(360deg)";
 //   }
 // });
+
+function getTimeSegmentElements(segmentElement) {
+  const segmentDisplay = segmentElement.querySelector(".segment_display");
+  const segmentDisplayTop = segmentDisplay.querySelector(
+    ".segment_display_top"
+  );
+  const segmentDisplayBottom = segmentDisplay.querySelector(
+    ".segment_display_bottom"
+  );
+
+  const segmentOverlay = segmentDisplay.querySelector(".segment_overlay");
+  const segmentOverlayTop = segmentOverlay.querySelector(
+    ".segment_overlay_top"
+  );
+  const segmentOverlayBottom = segmentOverlay.querySelector(
+    ".segment_overlay_bottom"
+  );
+
+  return {
+    segmentDisplayTop,
+    segmentDisplayBottom,
+    segmentOverlay,
+    segmentOverlayTop,
+    segmentOverlayBottom,
+  };
+}
+
+function updateSegmentValues(displayElement, overlayElement, value) {
+  displayElement.textContent = value;
+  overlayElement.textContent = value;
+}
+
+function updateTimeSegment(segmentElement, timeValue) {
+  const segmentElements = getTimeSegmentElements(segmentElement);
+
+  if (
+    parseInt(segmentElements.segmentDisplayTop.textContent, 10) === timeValue
+  ) {
+    return;
+  }
+
+  segmentElements.segmentOverlay.classList.add("flip");
+
+  updateSegmentValues(
+    segmentElements.segmentDisplayTop,
+    segmentElements.segmentOverlayBottom,
+    timeValue
+  );
+
+  function finishAnimation() {
+    segmentElements.segmentOverlay.classList.remove("flip");
+    updateSegmentValues(
+      segmentElements.segmentDisplayBottom,
+      segmentElements.segmentOverlayTop,
+      timeValue
+    );
+
+    this.removeEventListener("animationend", finishAnimation);
+  }
+
+  segmentElements.segmentOverlay.addEventListener(
+    "animationend",
+    finishAnimation
+  );
+}
+
+function updateTimeSection(sectionID, timeValue) {
+  if (sectionID === "year") {
+    const firstDigit = Math.floor(timeValue.toString().substring(0, 2));
+    const secondDigit = Math.floor(timeValue.toString().substring(2, 4));
+    const timeSegments = document
+      .getElementById(sectionID)
+      .querySelectorAll(".time_segment");
+
+    updateTimeSegment(timeSegments[0], firstDigit);
+    updateTimeSegment(timeSegments[1], secondDigit);
+    return;
+  }
+
+  const firstNumber = Math.floor(timeValue / 10) || 0;
+  const secondNumber = timeValue % 10 || 0;
+  const sectionElement = document.getElementById(sectionID);
+  const timeSegments = sectionElement.querySelectorAll(".time_segment");
+
+  updateTimeSegment(timeSegments[0], firstNumber);
+  updateTimeSegment(timeSegments[1], secondNumber);
+}
+
+function getCurrentTime() {
+  const now = new Date();
+  return {
+    year: now.getFullYear(),
+    month: now.getMonth() + 1,
+    days: now.getDay(),
+
+    hours: now.getHours(),
+    minutes: now.getMinutes(),
+    seconds: now.getSeconds(),
+  };
+}
+
+function updateAllSegments() {
+  const currentTime = getCurrentTime();
+
+  updateTimeSection("year", currentTime.year);
+  updateTimeSection("month", currentTime.month);
+  updateTimeSection("days", currentTime.days);
+
+  updateTimeSection("hours", currentTime.hours);
+  updateTimeSection("minutes", currentTime.minutes);
+  updateTimeSection("seconds", currentTime.seconds);
+}
+
+setInterval(updateAllSegments, 1000);
+updateAllSegments();

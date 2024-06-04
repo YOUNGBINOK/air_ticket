@@ -1,0 +1,145 @@
+:root {
+  --base-border-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+.time_board {
+  padding: 2rem 0;
+  background-color: #79baec;
+
+  background: url("/images/blue_sky.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.countdown {
+  display: flex;
+  gap: 1.8rem;
+  font-family: sans-serif;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.today {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.time_section {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.time_group {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.countdown p {
+  color: #fff;
+}
+
+.time_segment {
+  display: block;
+  font-size: 6.3rem;
+  font-weight: 900;
+  width: 100px;
+}
+
+.segment_display {
+  position: relative;
+  height: 100%;
+}
+
+.segment_display_top,
+.segment_display_bottom {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+.segment_display_top {
+  line-height: 1.5;
+  color: #eee;
+  background-color: #111;
+  border-radius: var(--base-border-radius);
+}
+
+.segment_display_bottom {
+  line-height: 0;
+  color: #fff;
+  background-color: #333;
+  border-radius: var(--base-border-radius);
+}
+
+.segment_overlay {
+  position: absolute;
+  top: 0;
+  perspective: 400px;
+  height: 100%;
+  width: 100px;
+}
+
+.segment_overlay_top,
+.segment_overlay_bottom {
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  border-radius: var(--base-border-radius);
+}
+
+.segment_overlay_top {
+  top: 0;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #111;
+  transform-origin: bottom;
+}
+
+.segment_overlay_bottom {
+  bottom: 0;
+  line-height: 0;
+  color: #eee;
+  background-color: #333;
+  border-top: 2px solid black;
+  transform-origin: top;
+}
+
+.segment_overlay.flip .segment_overlay_top {
+  animation: flip-top 0.8s linear;
+}
+
+.segment_overlay.flip .segment_overlay_bottom {
+  animation: flip-bottom 0.8s linear;
+}
+
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50%,
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  0%,
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}

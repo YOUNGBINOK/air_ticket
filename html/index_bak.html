@@ -9,6 +9,167 @@
     <div id="wrap">
       <header id="header">
         <input type="text" id="input_flightId" />
+        <div class="time_board">
+          <div class="countdown">
+            <div class="today">
+              <div class="time_section" id="year">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Year</p>
+              </div>
+              <div class="time_section" id="month">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Month</p>
+              </div>
+
+              <div class="time_section" id="days">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Days</p>
+              </div>
+            </div>
+            <div class="today">
+              <div class="time_section" id="hours">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Hours</p>
+              </div>
+
+              <div class="time_section" id="minutes">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Minutes</p>
+              </div>
+
+              <div class="time_section" id="seconds">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Seconds</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
       <main id="main">
         <section id="ticket" class="ticket">
@@ -46,13 +207,28 @@
                 <h3 class="item1 content_title">터미널</h3>
                 <h3 class="item1 content_title">항공기 편명</h3>
                 <h3 class="item1 content_title">출발 게이트</h3>
-                <span id="terminal_id" class="item2 content_text">터미널</span>
+                <span id="terminal_id" class="item2 content_text">
+                  <p>터미널</p>
+                  <svg
+                    data-src="https://s2.svgbox.net/pen-brushes.svg?ic=brush-5"
+                    width="32"
+                    height="32"
+                    color="#FFA500"
+                  ></svg>
+                </span>
                 <span id="flight_id" class="item2 content_text"
-                  >항공기 편명</span
-                >
-                <span id="gate_number" class="item2 content_text"
-                  >출발 게이트</span
-                >
+                  >항공기 편명
+                </span>
+
+                <span id="gate_number" class="item2 content_text">
+                  <p>출발 게이트</p>
+                  <svg
+                    data-src="https://s2.svgbox.net/pen-brushes.svg?ic=brush-5"
+                    width="32"
+                    height="32"
+                    color="#FFA500"
+                  ></svg>
+                </span>
 
                 <!-- <p class="city_code">도시 코드</p>
               <span id="city_code">도시 코드</span> -->
@@ -67,7 +243,7 @@
               </div>
             </div>
             <div class="ticket_bottom">
-              <p>하단</p>
+              <p class="timenow"></p>
             </div>
           </div>
           <div class="ticket_right">
