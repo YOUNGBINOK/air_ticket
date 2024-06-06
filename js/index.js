@@ -56,6 +56,10 @@ async function getData() {
 
   departureData = departureInfo.response.body.items;
   await departureScreen();
+  setInterval(async () => {
+    console.log("10초 마다 최신화");
+    await departureScreen();
+  }, 10000);
 }
 
 try {
@@ -167,9 +171,49 @@ flightIdInput.addEventListener("change", function (e) {
 
 // 스크린 추가
 let screen = document.querySelector(".screen");
+
+function convertToTimeToday(timeString) {
+  const now = new Date();
+  const hours = parseInt(timeString.slice(0, 2), 10);
+  const minutes = parseInt(timeString.slice(2, 4), 10);
+  return new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    hours,
+    minutes
+  );
+}
+
+// 10초마다 리셋하고 최신화 하기 추가
 async function departureScreen() {
-  const itemsToDisplay = 10;
-  for (let i = 0; i < Math.min(itemsToDisplay, departureData.length); i++) {
+  //screen.innerHTML = "";
+  let list = document.querySelectorAll(".departure_list");
+  if (list) {
+    list.forEach((item) => {
+      item.remove();
+    });
+  }
+  const itemsToDisplay = 20;
+
+  const now = new Date();
+
+  const upcomingDepartures = departureData.filter((departure) => {
+    const departureTime = convertToTimeToday(departure.scheduleDateTime);
+    return departureTime > now;
+  });
+
+  const sortedDepartureData = upcomingDepartures.sort((a, b) => {
+    const timeA = convertToTimeToday(a.estimatedDateTime);
+    const timeB = convertToTimeToday(b.estimatedDateTime);
+    return timeA - timeB;
+  });
+
+  for (
+    let i = 0;
+    i < Math.min(itemsToDisplay, sortedDepartureData.length);
+    i++
+  ) {
     // 출발 현황 리스트 생성
     let departureList = document.createElement("div");
     let departureAirlineName = document.createElement("p");
@@ -203,11 +247,11 @@ async function departureScreen() {
     departureList.appendChild(departureRemark);
 
     // 터미널 이름 변경
-    if (departureData[i].terminalId === "P01") {
+    if (sortedDepartureData[i].terminalId === "P01") {
       departureTerminalId.textContent = "제1 터미널";
-    } else if (departureData[i].terminalId === "P02") {
+    } else if (sortedDepartureData[i].terminalId === "P02") {
       departureTerminalId.textContent = "탑승동";
-    } else if (departureData[i].terminalId === "P03") {
+    } else if (sortedDepartureData[i].terminalId === "P03") {
       departureTerminalId.textContent = "제2 터미널";
     }
 
@@ -224,26 +268,26 @@ async function departureScreen() {
 
     // 출발 변경 시간
     let newEstimatedDateTime =
-      departureData[i].estimatedDateTime.slice(0, 2) +
+      sortedDepartureData[i].estimatedDateTime.slice(0, 2) +
       insertString +
-      departureData[i].estimatedDateTime.slice(2);
+      sortedDepartureData[i].estimatedDateTime.slice(2);
 
     // 출발 예정 시간
     let newScheduleDateTime =
-      departureData[i].scheduleDateTime.slice(0, 2) +
+      sortedDepartureData[i].scheduleDateTime.slice(0, 2) +
       insertString +
-      departureData[i].scheduleDateTime.slice(2);
+      sortedDepartureData[i].scheduleDateTime.slice(2);
 
     departureEstimatedTime.textContent = newEstimatedDateTime;
     departureScheduleTime.textContent = newScheduleDateTime;
 
-    departureAirport.textContent = departureData[i].airport;
-    departureAirlineName.textContent = departureData[i].airline;
-    departureFlightId.textContent = departureData[i].flightId;
+    departureAirport.textContent = sortedDepartureData[i].airport;
+    departureAirlineName.textContent = sortedDepartureData[i].airline;
+    departureFlightId.textContent = sortedDepartureData[i].flightId;
 
-    departureCheckin.textContent = departureData[i].chkinrange;
-    departureGateNum.textContent = departureData[i].gatenumber;
-    departureRemark.textContent = departureData[i].remark;
+    departureCheckin.textContent = sortedDepartureData[i].chkinrange;
+    departureGateNum.textContent = sortedDepartureData[i].gatenumber;
+    departureRemark.textContent = sortedDepartureData[i].remark;
   }
 }
 

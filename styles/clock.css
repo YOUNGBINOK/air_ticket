@@ -1,5 +1,8 @@
 :root {
   --base-border-radius: 8px;
+  --base-screen-background: #111;
+  --base-screen-background-even: #333;
+  --base-screen-background-odd: #111;
 }
 
 * {
@@ -131,39 +134,51 @@
 }
 
 .screen_container {
-  background-color: antiquewhite;
+  border: solid 1em #333;
+  border-radius: 0.5em;
+  padding: 10px 0;
 }
 
 .screen {
   display: table;
   margin: 0 auto;
+  background-color: var(--base-screen-background);
 }
 
-.screen_table {
+.screen_title {
   display: table-row;
   width: 100%;
   overflow: scroll;
   background-color: #eee;
   border-spacing: 2px;
   border-radius: 4px;
+  background-color: var(--base-screen-background);
+  color: #fff;
 }
 
-.screen_table h2 {
+.screen_title .title {
   display: table-cell;
   vertical-align: top;
-  background-color: #fff;
   padding: 10px 8px;
 }
 
 .departure_list {
   display: table-row;
 }
+.departure_list:nth-child(even) {
+  background-color: var(--base-screen-background-even);
+}
+
+.departure_list:nth-child(odd) {
+  background-color: var(--base-screen-background-odd);
+}
 
 .departure_list p {
   display: table-cell;
   vertical-align: top;
-  background-color: #fff;
   padding: 10px 8px;
+  border: 1px solid #ddd;
+  color: #fff;
 }
 @keyframes flip-top {
   0% {
