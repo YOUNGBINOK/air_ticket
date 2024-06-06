@@ -3,7 +3,7 @@ const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./js/index_bak.js",
+  entry: "./js/index.js",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./html/index_bak.html",
+      template: "./html/index.html",
     }),
     new Dotenv(),
   ],

@@ -9,7 +9,7 @@
   padding: 2rem 0;
   background-color: #79baec;
 
-  background: url("/images/blue_sky.jpg");
+  /* background: url("/images/blue_sky.jpg"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -124,6 +124,47 @@
   animation: flip-bottom 0.8s linear;
 }
 
+/* 출발 스케줄 스크린 css */
+#departure_screen {
+  width: 100%;
+  text-align: center;
+}
+
+.screen_container {
+  background-color: antiquewhite;
+}
+
+.screen {
+  display: table;
+  margin: 0 auto;
+}
+
+.screen_table {
+  display: table-row;
+  width: 100%;
+  overflow: scroll;
+  background-color: #eee;
+  border-spacing: 2px;
+  border-radius: 4px;
+}
+
+.screen_table h2 {
+  display: table-cell;
+  vertical-align: top;
+  background-color: #fff;
+  padding: 10px 8px;
+}
+
+.departure_list {
+  display: table-row;
+}
+
+.departure_list p {
+  display: table-cell;
+  vertical-align: top;
+  background-color: #fff;
+  padding: 10px 8px;
+}
 @keyframes flip-top {
   0% {
     transform: rotateX(0deg);
