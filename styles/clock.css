@@ -12,7 +12,7 @@
   padding: 2rem 0;
   background-color: #79baec;
 
-  /* background: url("/images/blue_sky.jpg"); */
+  background: url(/asset/resource/blue_sky.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

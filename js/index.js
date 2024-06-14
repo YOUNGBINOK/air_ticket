@@ -2,7 +2,6 @@ import "../styles/common.css";
 import "../styles/index.css";
 import "../styles/clock.css";
 import "external-svg-loader";
-import "../images/blue_sky.jpg";
 
 let departureInfo;
 let arrivalInfo;

@@ -1,6 +1,7 @@
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: "./js/index.js",
@@ -23,24 +24,16 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[path][name].[ext]",
-              outputPath: "images/",
-            },
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 20 * 1024, // 20KB
           },
-        ],
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-          },
-        ],
+        },
+        generator: {
+          filename: "images/[hash][ext][query]",
+        },
       },
     ],
   },
@@ -49,6 +42,11 @@ module.exports = {
       template: "./html/index.html",
     }),
     new Dotenv(),
+    new webpack.DefinePlugin({
+      APP_NAME: JSON.stringify(process.env.API_KEY),
+      VERSION: JSON.stringify("v0.1"),
+    }),
+    new webpack.EnvironmentPlugin({ DEBUG: "on" }),
   ],
   devServer: {
     static: "./dist",
@@ -56,6 +54,6 @@ module.exports = {
     open: true,
   },
   devtool: "source-map",
-  mode: "development",
+  mode: process.env.NODE_ENV || "development",
   watch: true,
 };

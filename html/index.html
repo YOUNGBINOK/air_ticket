@@ -8,8 +8,13 @@
   <body>
     <div id="wrap">
       <header id="header">
-        <input type="text" id="input_flightId" />
-
+        <div class="container">
+          <nav class="nav">
+            <h1 class="nav_top" id="logo">로고</h1>
+            <h2 class="nav_top" id="project_name">프로젝트 이름</h2>
+            <h2 class="nav_top" id="contact">연락</h2>
+          </nav>
+        </div>
         <!-- 현재 시간 공항 버전 -->
         <div class="time_board">
           <div class="countdown">
@@ -240,7 +245,11 @@
                   ></svg>
                 </span>
                 <span id="flight_id" class="item2 content_text"
-                  >항공기 편명
+                  ><input
+                    type="text"
+                    id="input_flightId"
+                    placeholder="항공기편명"
+                  />
                 </span>
 
                 <span id="gate_number" class="item2 content_text">

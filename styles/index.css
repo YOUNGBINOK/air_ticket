@@ -19,7 +19,9 @@
   --base-font-color: #000;
   --ticket-border-radius: 15px;
 }
-
+.container {
+  margin: 0 4rem;
+}
 .wrap {
   overflow-x: hidden;
 }
@@ -94,9 +96,17 @@
 
 #header {
 }
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_top {
+}
 
 #input_flightId {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .week_schedule {

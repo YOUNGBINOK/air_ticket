@@ -8,36 +8,302 @@
   <body>
     <div id="wrap">
       <header id="header">
-        <!-- <h1 class="hide_text">헤더</h1> -->
-        <input type="text" id="input_flightId" />
-        <input type="date" id="select_date" />
+        <div class="container">
+          <nav class="nav">
+            <h1 class="nav_top" id="logo">로고</h1>
+            <h2 class="nav_top" id="project_name">프로젝트 이름</h2>
+            <h2 class="nav_top" id="contact">연락</h2>
+          </nav>
+        </div>
+        <!-- 현재 시간 공항 버전 -->
+        <div class="time_board">
+          <div class="countdown">
+            <div class="today">
+              <div class="time_section" id="year">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Year</p>
+              </div>
+
+              <div class="time_section" id="month">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Month</p>
+              </div>
+
+              <div class="time_section" id="days">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Days</p>
+              </div>
+            </div>
+            <div class="today">
+              <div class="time_section" id="hours">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Hours</p>
+              </div>
+
+              <div class="time_section" id="minutes">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Minutes</p>
+              </div>
+
+              <div class="time_section" id="seconds">
+                <div class="time_group">
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="time_segment">
+                    <div class="segment_display">
+                      <div class="segment_display_top"></div>
+                      <div class="segment_display_bottom"></div>
+                      <div class="segment_overlay">
+                        <div class="segment_overlay_top"></div>
+                        <div class="segment_overlay_bottom"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>Seconds</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
       <main id="main">
-        <section class="ticket">
-          <div class="ticket_top">
-            <h1 class="logo">로고</h1>
-            <p id="airline_name">항공사이름_내용</p>
-            <p class="boarding_pass">boarding pass</p>
-          </div>
-          <div class="content">
-            <p class="start_airport">출발공항</p>
-            <span id="start_airport">출발공항코드</span>
-            <span class="icon"><img class="plane" /></span>
-            <span id="airport_code">도착공항코드</span>
-            <p id="final_airport">목적공항</p>
-            <span id="flight_id">항공기편명</span>
-            <span id="gate_number">출발게이트</span>
-            <!-- <span id="carousel">수하물수취대</span> -->
-            <span id="city_code">도시코드</span>
-            <span id="remark">운항상태</span>
-            <span id="terminalId">터미널</span>
-            <span id="elapsetime">소요시간</span>
-            <section></section>
-          </div>
-          <div class="ticket_bottom">
-            <p>하단</p>
+        <section id="departure_screen">
+          <div class="screen_container">
+            <h2>출발 현황 스크린 10초마다 업데이트</h2>
+
+            <div class="screen">
+              <div class="screen_title">
+                <h3 class="title">출발예정시간</h3>
+                <h3 class="title">출발변경시간</h3>
+                <h3 class="title">도착지</h3>
+                <h3 class="title">항공사</h3>
+                <h3 class="title">편명</h3>
+                <h3 class="title">터미널</h3>
+                <h3 class="title">체크인 카운터</h3>
+                <h3 class="title">게이트</h3>
+                <h3 class="title">운항현황</h3>
+              </div>
+            </div>
           </div>
         </section>
+
+        <section id="ticket" class="ticket">
+          <div class="ticket_left">
+            <div class="ticket_top">
+              <h1 class="logo">로고</h1>
+              <h2 class="ticket_title">항공사이름</h2>
+              <p class="boarding_pass">boarding pass</p>
+            </div>
+            <div class="content">
+              <div class="city">
+                <h3 id="start_airport" class="item1 content_title">인천</h3>
+                <h3 id="final_airport" class="item1 content_title">목적공항</h3>
+                <p id="departure_airport_code" class="item2">출발공항코드</p>
+                <div class="airplane_container">
+                  <div class="airplane">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="30px"
+                      viewBox="0 -960 960 960"
+                      width="30px"
+                      fill="#5f6368"
+                    >
+                      <path
+                        d="m274-274-128-70 42-42 100 14 156-156-312-170 56-56 382 98 157-155q17-17 42.5-17t42.5 17q17 17 17 42.5T812-726L656-570l98 382-56 56-170-312-156 156 14 100-42 42-70-128Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <p id="arrival_airport_code" class="item2">도착공항코드</p>
+                <p class="content_background"></p>
+              </div>
+
+              <div class="aiport_status">
+                <h3 class="item1 content_title">터미널</h3>
+                <h3 class="item1 content_title">항공기 편명</h3>
+                <h3 class="item1 content_title">출발 게이트</h3>
+                <span id="terminal_id" class="item2 content_text">
+                  <p>터미널</p>
+                  <svg
+                    data-src="https://s2.svgbox.net/pen-brushes.svg?ic=brush-5"
+                    width="32"
+                    height="32"
+                    color="#FFA500"
+                  ></svg>
+                </span>
+                <span id="flight_id" class="item2 content_text"
+                  ><input
+                    type="text"
+                    id="input_flightId"
+                    placeholder="항공기편명"
+                  />
+                </span>
+
+                <span id="gate_number" class="item2 content_text">
+                  <p>출발 게이트</p>
+                  <svg
+                    data-src="https://s2.svgbox.net/pen-brushes.svg?ic=brush-5"
+                    width="32"
+                    height="32"
+                    color="#FFA500"
+                  ></svg>
+                </span>
+
+                <!-- <p class="city_code">도시 코드</p>
+              <span id="city_code">도시 코드</span> -->
+
+                <h3 class="item3 content_title">체크인 카운터</h3>
+                <h3 class="item3 content_title">운항 상태</h3>
+
+                <span id="checkin_counter" class="item4 content_text"
+                  >체크인 카운터</span
+                >
+                <span id="remark" class="item4 content_text">운항 상태</span>
+              </div>
+            </div>
+            <div class="ticket_bottom">
+              <p class="timenow"></p>
+            </div>
+          </div>
+          <div class="ticket_right">
+            <div class="ticket_top">
+              <h2 class="ticket_title">항공사이름</h2>
+            </div>
+
+            <div class="content">
+              <div class="about_time">
+                <h3 class="content_title">출발 예정 시간</h3>
+                <span id="estimated_datetime">출발 예정 시간</span>
+
+                <h3 class="content_title">비행 소요 시간</h3>
+                <span id="elapse_time">비행 소요 시간</span>
+
+                <h3 class="content_title">도착 예정 시간</h3>
+                <span id="estimated_arrival_time">도착 예정 시간</span>
+
+                <p class="content_background"></p>
+              </div>
+            </div>
+
+            <div class="ticket_bottom">
+              <p>하단</p>
+            </div>
+          </div>
+        </section>
+        <!-- <button id="rotate_button" type="button">회전</button> -->
       </main>
       <footer id="footer"></footer>
     </div>
